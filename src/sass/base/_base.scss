@@ -10,14 +10,27 @@ html {
   //375px~787px
   font-size: 16px;
 
+  // 768px~$inner-pc
+  // デザインカンプのデザインが維持される最大幅
   @include mq("md") {
-    font-size: vw(strip-unit($l-inner), 16);
+    font-size: vw(($inner-pc + $padding-pc * 2), 16);
   }
 
   //inner~max-screen
-  @media (min-width: $l-inner) {
+  @media (min-width: #{$inner-pc + $padding-pc * 2}px) {
     font-size: 16px;
   }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: $base-font-family;
+  color : $black;
+}
+
+main {
+  flex: 1;
 }
 
 /* pcの電話番号発信対応 */

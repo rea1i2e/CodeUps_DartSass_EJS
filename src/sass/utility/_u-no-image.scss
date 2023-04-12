@@ -1,0 +1,11 @@
+@use 'global' as *;
+@use 'sass:math';
+
+img.u-no-image {
+  padding: rem(32);
+  background-color: #ECECEC;
+  object-fit: contain;
+  @include mq() {
+    padding: rem(64);
+  }
+}

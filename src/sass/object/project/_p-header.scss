@@ -1,0 +1,8 @@
+@use 'global' as *;
+@use 'sass:math';
+
+.p-header {
+  background-color: #ccc;
+  font-size: rem(20);
+  color: blue;
+}

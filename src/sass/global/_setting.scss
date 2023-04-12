@@ -1,47 +1,29 @@
 @use "sass:math";
 
-////////////////////
 // インナー幅設定
-////////////////////
-// コンテンツのインナー幅（最も共通の幅が多い部分）
-$l-inner: 1100px;
-// ※キュンパス幅ではなくインナーの幅を指す
+$inner-pc: 1100;
+$inner-sp: 540;
 
 // 余白
-$padding-pc: 25px;
-$padding-sp: 20px;
+$padding-sp: 20;
+$padding-pc: 25;
 // ※PC時：デザインカンプの余白の幅ではない。PC時は通常25pxで大丈夫！
 
-
-////////////////////
 // フォント設定
-////////////////////
-
-$base-font-family: "";
+$base-font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $second-font-family: "";
-// ※検証ツールでしっかり反映されているか確認する
-
-body {
-  font-family: $base-font-family;
-}
 
 // フォントウェイト
-$regular: 300;
 $normal: 400;
+$medium: 500;
 $bold: 700;
-
-////////////////////
-// 色の指定
-////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
 $black: #111;
 $white: #fff;
+$orange: #ffcc00;
+$blue: #0072c6; // 基本のフォントカラー、背景色など
 
-
-////////////////////
-// メディアクエリとブレークポイントの設定
-////////////////////
 
 //ブレイクポイント
 $breakpoints: (
@@ -50,7 +32,6 @@ $breakpoints: (
   lg: 1024,
   xl: 1440,
 );
-
 
 //メディアクエリー
 $mediaquerys: (
@@ -67,27 +48,4 @@ $mediaquerys: (
   }
 }
 
-// remへの計算式（16pxを基準としている。10pxを基準とする場合は16を10に変更する）
-@function rem($pixels) {
-  @return math.div($pixels, 16) * 1rem;
-}
 
-
-////////////////////
-// 非表示設定
-////////////////////
-
-//768px以上を表示
-.u-desktop {
-  display: none;
-  @include mq("md") {
-    display: block;
-  }
-}
-
-//モバイルのみ表示
-.u-mobile {
-  @include mq("md") {
-    display: none;
-  }
-}

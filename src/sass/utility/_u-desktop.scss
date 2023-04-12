@@ -1,0 +1,10 @@
+@use 'global' as *;
+@use 'sass:math';
+
+//768px以上を表示
+.u-desktop {
+  display: none;
+  @include mq("md") {
+    display: block;
+  }
+}
