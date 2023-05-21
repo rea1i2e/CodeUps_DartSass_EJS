@@ -1,6 +1,5 @@
 .vscode/
 src/node_modules/
-twentytwentyone/
 package-lock.json/
 .DS_Store
 dist

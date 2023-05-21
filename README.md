@@ -28,3 +28,4 @@
 - l-innerのpaddingの単位をremに
 - リセットCSSの読み込み順変更
 - function.scss整理
+- cssファイル、jsファイル読み込みにクエリパラメータ追加
