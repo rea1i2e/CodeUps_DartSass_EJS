@@ -1,0 +1,61 @@
+@use "global" as *;
+@use "sass:math";
+
+.p-drawer-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: $white;
+}
+
+.p-drawer-nav::after {
+	position: absolute;
+	bottom: rem(22);
+	left: rem(4);
+	display: block;
+	width: rem(80);
+	aspect-ratio: 153 / 353;
+	background: url(../images/common/nav_character.png) no-repeat center / contain;
+	content: "";
+	@include mq() {
+		width: rem(76);
+		bottom: rem(31);
+		left: rem(16);
+	}
+}
+
+.p-drawer-nav__items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: url(../images/common/nav_bg_sp.png) no-repeat bottom / cover;
+	width: calc(100% - rem(40));
+	height: calc(100% - rem(44));
+	min-height: rem(593 - 44);	
+	border-radius: rem(20);
+	@include mq() {
+		background-image: url(../images/common/nav_bg.png);
+		width: calc(100% - rem(62));
+		height: calc(100% - rem(62));
+		min-height: rem(678 - 22);
+	}
+}
+
+.p-drawer-nav__item {
+}
+
+.p-drawer-nav__item a {
+	display: inline-block;
+	padding: rem(18);
+	color: $blue;
+	font-family: $font-alata;
+	font-size: rem(22);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	@include mq() {
+		padding: rem(25);
+		font-size: rem(27);
+	}
+}

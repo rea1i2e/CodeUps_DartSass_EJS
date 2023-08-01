@@ -1,0 +1,76 @@
+@use "global" as *;
+@use "sass:math";
+
+.c-menu-button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: rem(60);
+	aspect-ratio: 1 / 1;
+	padding: 0;
+	background-color: $yellow;
+	@include mq() {
+		width: rem(77);
+	}
+}
+
+.c-menu-button::after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transform: translateY(100%);
+	display: block;
+	width: 100%;
+	aspect-ratio: 60 /20;
+	background-color: $blue;
+	clip-path: polygon(0 0, 100% 100%, 100% 0);
+	content: "";
+}
+
+.c-menu-button span {
+	position: absolute;
+	display: block;
+	width: rem(24);
+	height: rem(4);
+	background-color: $blue;
+	transition: transform 0.3s ease-in-out;
+	@include mq() {
+		width: rem(30);
+	}
+}
+
+.c-menu-button span::before,
+.c-menu-button span::after {
+	position: absolute;
+	display: block;
+	width: rem(24);
+	height: rem(4);
+	background-color: $blue;
+	content: "";
+	transition: transform 0.3s ease-in-out;
+	@include mq() {
+		width: rem(30);
+	}
+}
+
+.c-menu-button span::before {
+	transform: translateY(#{rem(-8)});
+}
+
+.c-menu-button span::after {
+	transform: translateY(#{rem(8)});
+}
+
+/* ドロワーメニュー展開時 */
+.c-menu-button[aria-expanded="true"] span {
+	height: 0;
+}
+
+.c-menu-button[aria-expanded="true"] span::before {
+	transform: translateY(0) rotate(36deg);
+}
+
+.c-menu-button[aria-expanded="true"] span::after {
+	transform: translateY(0) rotate(-36deg);
+}

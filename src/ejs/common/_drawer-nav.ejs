@@ -1,0 +1,40 @@
+<button class="l-menu-button c-menu-button" id="js-menu" aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開閉する">
+  <span></span>
+</button>
+
+	<% 
+navItems = [
+{
+  href: "#topics",
+  text: "topics",
+},  
+{
+  href: "#schedule",
+  text: "schedule",
+},  
+{
+  href: "#ticket",
+  text: "ticket",
+},  
+{
+  href: "#goods",
+  text: "goods",
+},  
+{
+  href: "#contact",
+  text: "contact",
+},  
+];
+%>
+
+	<nav class="l-drawer-nav p-drawer-nav" id="js-drawer" aria-hidden="true">
+		<ul class="p-drawer-nav__items">
+			<% navItems.forEach(function(item) { %>
+			<li class="p-drawer-nav__item">
+				<a href="<%- item.href %>">
+					<%- item.text %>
+				</a>
+			</li>
+			<% }); %>
+		</ul>
+	</nav>

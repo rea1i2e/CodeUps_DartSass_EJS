@@ -1,0 +1,9 @@
+@use 'global' as *;
+@use 'sass:math';
+
+.l-menu-button {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+}

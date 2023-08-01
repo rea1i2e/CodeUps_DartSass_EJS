@@ -1,0 +1,27 @@
+@use 'global' as *;
+@use 'sass:math';
+
+.c-button {
+	display: inline-block;
+	width: 100%;
+	max-width: rem(285);
+	padding: rem(21);
+	font-size: rem(18);
+	letter-spacing: 0.08em;
+	line-height: 1;
+	font-weight: 700;
+	border-radius: rem(30);
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+	@include mq() {
+		max-width: rem(325);
+	}
+}
+
+/* hover */
+.c-button:hover {
+	@include mq() {
+		color: $yellow;
+		opacity: 1;
+	}
+}
