@@ -27,7 +27,6 @@ jQuery(function ($) {
 		$("html,body").css("overflow", "initial");
 	});
 
-});
 
 
 // /* ------------------------------

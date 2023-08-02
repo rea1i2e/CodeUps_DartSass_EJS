@@ -9,7 +9,6 @@
 	width: rem(60);
 	aspect-ratio: 1 / 1;
 	padding: 0;
-	background-color: $yellow;
 	@include mq() {
 		width: rem(77);
 	}

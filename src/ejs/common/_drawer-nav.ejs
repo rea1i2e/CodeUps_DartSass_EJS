@@ -27,14 +27,14 @@ navItems = [
 ];
 %>
 
-	<nav class="l-drawer-nav p-drawer-nav" id="js-drawer" aria-hidden="true">
-		<ul class="p-drawer-nav__items">
-			<% navItems.forEach(function(item) { %>
-			<li class="p-drawer-nav__item">
-				<a href="<%- item.href %>">
-					<%- item.text %>
-				</a>
-			</li>
-			<% }); %>
-		</ul>
-	</nav>
+<nav class="l-drawer-nav p-drawer-nav" id="js-drawer" aria-hidden="true">
+	<ul class="p-drawer-nav__items">
+		<% navItems.forEach(function(item) { %>
+		<li class="p-drawer-nav__item">
+			<a href="<%- item.href %>">
+				<%- item.text %>
+			</a>
+		</li>
+		<% }); %>
+	</ul>
+</nav>

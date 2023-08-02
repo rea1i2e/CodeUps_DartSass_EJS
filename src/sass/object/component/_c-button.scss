@@ -21,7 +21,6 @@
 /* hover */
 .c-button:hover {
 	@include mq() {
-		color: $yellow;
-		opacity: 1;
+		opacity: 0.8;
 	}
 }

@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <%- include('./common/_head') %>
-  <body>
-    <%- include('./common/_header') %>
-      <%- include('./component/_c-btn',{text:'これはテストです', link:'#'}) %>
+
+<body>
+	<%- include('./common/_header') %>
 
 
-    <% for (let i=0; i < 4; i++) { %>
-      <%- include('./component/_c-btn',{text:'これはテストです', link:'#'}) %>
-      <% } %>
+	<% 
+items = [
+{
+heading: "配列に格納する文字列にbrタグを挿入",
+description: "改行を含む文字列。テキストテキストテキストテキストテキスト<br /><br />",
+}, 
+{
+heading: "配列に格納する文字列にクラス付きのbrタグを挿入",
+description: "改行を含む文字列。テキストテキストテキストテキストテキスト<br class='u-desktop'/>改行<br />",
+}, 
+];
+%>
 
-      <%- include('./common/_footer') %>
-  </body>
+	<ul class="p-about__items">
+		<% items.forEach(function(item) { %>
+		<li class="p-about__item">
+			<h3 class="p-about__item-heading">
+				<%- item.heading %>
+			</h3>
+			<p class="p-about__item-description">
+				<%- item.description %>
+			</p>
+		</li>
+		<% }); %>
+	</ul>
+
+	<%- include('./common/_footer') %>
+</body>
+
 </html>
