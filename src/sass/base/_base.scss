@@ -22,17 +22,6 @@ html {
   }
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: $base-font-family;
-  color : $black;
-}
-
-main {
-  flex: 1;
-}
-
 /* pcの電話番号発信対応 */
 a[href^="tel:"] {
   @include mq("md") {

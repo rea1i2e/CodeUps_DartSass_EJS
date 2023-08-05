@@ -21,8 +21,6 @@ $bold: 700;
 //色指定（共通性のあるものは出来る限り指定すると良い）
 $black: #111;
 $white: #fff;
-$orange: #ffcc00;
-$blue: #0072c6; // 基本のフォントカラー、背景色など
 
 
 //ブレイクポイント
@@ -48,4 +46,12 @@ $mediaquerys: (
   }
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: $base-font-family;
+}
 
+main {
+  flex: 1;
+}
