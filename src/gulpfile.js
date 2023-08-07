@@ -10,7 +10,7 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssdeclsort = require("css-declaration-sorter");
 const cleanCSS = require("gulp-clean-css");
-const cssnext = require("postcss-cssnext");
+// const cssnext = require("postcss-cssnext"); // 非推奨
 const rename = require("gulp-rename");
 const sourcemaps = require("gulp-sourcemaps");
 
@@ -53,40 +53,39 @@ const destPath = {
 const browsers = [
 	'last 2 versions',
 	'> 5%',
-	'ie = 11',
+	'ie 11',
 	'not ie <= 10',
 	'ios >= 8',
 	'and_chr >= 5',
 	'Android >= 5',
 ]
 const cssSass = () => {
-	return src(srcPath.css)
-		.pipe(sourcemaps.init())
-		.pipe(
-			plumber({
-				errorHandler: notify.onError('Error:<%= error.message %>')
-			}))
-		.pipe(sassGlob())
-		.pipe(sass.sync({
-			includePaths: ['src/sass'],
-			outputStyle: 'expanded'
-		})) //指定できるキー expanded compressed
-		.pipe(postcss([autoprefixer({ // autoprefixer
-			grid: true
-		})]))
-		.pipe(postcss([
-			cssdeclsort({ order: "alphabetical" }),
-			cssnext(browsers)
-		]))
-		.pipe(mmq()) // media query mapper
-		.pipe(sourcemaps.write('./'))
-		.pipe(dest(destPath.css))
-		.pipe(notify({
-			message: 'Sassをコンパイルしました！',
-			onLast: true
-		}))
+  return src(srcPath.css)
+    .pipe(sourcemaps.init())
+    .pipe(
+      plumber({
+        errorHandler: notify.onError('Error:<%= error.message %>')
+      }))
+    .pipe(sassGlob())
+    .pipe(sass.sync({
+      includePaths: ['src/sass'],
+      outputStyle: 'expanded'
+    })) 
+    .pipe(postcss([autoprefixer({ 
+      grid: true
+    })]))
+    .pipe(postcss([
+      cssdeclsort({ order: "alphabetical" }),
+      require('postcss-preset-env')({ browsers: browsers, stage: 0 })  // This line replaces cssnext
+    ]))
+    .pipe(mmq()) 
+    .pipe(sourcemaps.write('./'))
+    .pipe(dest(destPath.css))
+    .pipe(notify({
+      message: 'Sassをコンパイルしました！',
+      onLast: true
+    }))
 }
-
 
 //  EJS
 const ejs = require("gulp-ejs");
